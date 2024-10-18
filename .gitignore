@@ -1,0 +1,72 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django specific
+*.log
+db.sqlite3
+*.pot
+*.pyc
+local_settings.py
+
+# Django migrations
+**/migrations/*
+
+# Media and static files
+/staticfiles/
+/media/
+/static/
+
+# Streamlit specific
+.streamlit/
+
+# Ignore environment variables and config files
+.env
+.venv/
+venv/
+ENV/
+env/
+*.env
+*.env.*
+
+# Poetry specific files
+poetry.lock
+*.toml
+*.lock
+*.dist-info/
+
+# Ignore virtualenv created by Poetry
+# If you're using the poetry managed virtual environment
+# you may want to ignore it
+# .venv/
+.venv/
+
+# Windows specific files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Python virtual environment (Windows)
+Lib/
+Include/
+Scripts/
+*.dll
+*.exe
+
+# VS Code settings and editor config
+.vscode/
+.idea/
+*.iml
+
+# macOS generated files
+.DS_Store
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Cache and logs
+*.log
+*.swp
+*~
