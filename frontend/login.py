@@ -25,24 +25,23 @@ def register(username, email, password, first_name, last_name):
     }
     response = requests.post(url, json=data)
     if response.status_code == 201:
-        return True  # Registration successful
+        return True  
     elif response.status_code == 400:
-        return response.json()  # Return validation errors
+        return response.json() 
     else:
-        return None  # Some other error
+        return None 
 
 
-# Function to fetch user details
 def get_user_details(access_token):
-    url = f"{BASE_URL}profile/"  # Replace with the correct user detail endpoint
+    url = f"{BASE_URL}profile/" 
     headers = {"Authorization": f"Bearer {access_token}"}
     response = requests.get(url, headers=headers)
     if response.status_code == 200:
-        return response.json()  # Return user data
+        return response.json()  
     else:
-        return None  # Error fetching user details
-    
-# Main UI for the login page
+        return None  
+
+
 def login_ui():
     st.title("Login")
 
@@ -57,23 +56,23 @@ def login_ui():
             st.session_state["refresh_token"] = result["refresh"]
             st.session_state.page = "user_detail"
         else:
-            st.error("Invalid username or password. Please try again.")
+            st.error("Invalid username or password. Try again.")
 
     if st.button("Register here"):
         st.session_state.page = "register"
 
-# Main UI for the registration page
+
 def register_ui():
     st.title("Register")
 
     username = st.text_input("Username", key="username_input")
     email = st.text_input("Email")
     password = st.text_input("Password", type="password", key="password_input")
-    firstName = st.text_input("Firstname")
-    lastName = st.text_input("Lastname")
+    first_Name = st.text_input("Firstname")
+    last_Name = st.text_input("Lastname")
 
     if st.button("Register"):
-        result = register(username, email, password, firstName, lastName)
+        result = register(username, email, password, first_Name, last_Name)
         if result is True:
             st.success("Registration successful! Please log in.")
             st.session_state.page = "login" 
@@ -84,6 +83,7 @@ def register_ui():
 
     if st.button("Login here"):
         st.session_state.page = "login"
+
 
 def user_detail_ui():
     st.title("User Details")
@@ -106,10 +106,10 @@ def user_detail_ui():
         st.session_state.page = "login"
         st.success("You have logged out.")
 
-# Main Streamlit app logic
+
 def main():
     if "page" not in st.session_state:
-        st.session_state.page = "login"  # Default page is login
+        st.session_state.page = "login" 
 
     if st.session_state.page == "login":
         login_ui()
