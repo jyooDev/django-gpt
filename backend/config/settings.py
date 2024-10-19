@@ -33,6 +33,8 @@ ALLOWED_HOSTS = []
 
 CUSTOM_APPS = [ 
     'users',
+    'conversation',
+    'date',
 ]
 
 THIRD_PARTY_APPS = [
