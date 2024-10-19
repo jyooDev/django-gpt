@@ -4,6 +4,7 @@ from rest_framework import status
 from .models import ApplicationUser
 from .serializers import UserSerializer
 from rest_framework.permissions import IsAuthenticated
+from django.contrib.auth.hashers import check_password
 
 class UserDetailView(APIView):
     permission_classes = [IsAuthenticated]
@@ -36,6 +37,7 @@ class UserRegisterView(APIView):
     permission_classes = [] 
 
     def post(self, request):
+        password = request.data.get("password")
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
