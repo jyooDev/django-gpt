@@ -19,3 +19,6 @@ class Conversation(Date):
         if not self.title_slug:
             self.title_slug = slugify(self.title)
         super(Conversation, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return f'{self.username}: {self.title_slug}'
