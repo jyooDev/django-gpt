@@ -1,20 +1,13 @@
 import streamlit as st
-from pages.login_page import login_ui
-from pages.user_detail_page import user_detail_ui
-from pages.register_page import register_ui
+from pages.login import main as login_main
+from pages.user_detail import main as user_detail_main
+from pages.register import main as register_main
 
 def main():
-    if "page" not in st.session_state:
-        st.session_state.page = "login" 
+    st.title("Welcome to This App")
 
-    if st.session_state.page == "login":
-        login_ui()
-    
-    if st.session_state.page == "user_detail":
-        user_detail_ui()
-    
-    elif st.session_state.page == "register":
-        register_ui()
-
+    if "access_token" in st.session_state:
+        st.write(f"Hello, {st.session_state.get('username', 'User')}! Here are your conversations:")
+        # conversation_ui()  # Show conversation history if logged in
 if __name__ == "__main__":
     main()

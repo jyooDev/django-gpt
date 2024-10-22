@@ -1,5 +1,6 @@
 import streamlit as st
 from api.auth import login
+from pages.register import main as register_main
 
 def login_ui():
     st.title("Login")
@@ -17,5 +18,8 @@ def login_ui():
         else:
             st.error("Invalid username or password. Try again.")
 
-    if st.button("Register here"):
-        st.session_state.page = "register"
+def main():
+    login_ui()
+
+if __name__ == "__main__":
+    main()

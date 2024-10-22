@@ -21,3 +21,9 @@ def user_detail_ui():
         st.session_state.pop("refresh_token")
         st.session_state.page = "login"
         st.success("You have logged out.")
+
+def main():
+    user_detail_ui()
+
+if __name__ == "__main__":
+    main()

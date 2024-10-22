@@ -1,8 +1,9 @@
 import requests
-from config import settings 
+
+BASE_URL = "http://127.0.0.1:8000/api/v1/users/"
 
 def login(username, password):
-    url = f"{settings.BASE_URL}login/"
+    url = f"{BASE_URL}login/"
     data = {"username": username, "password": password}
     response = requests.post(url, json=data)
     if response.status_code == 200:
@@ -11,7 +12,7 @@ def login(username, password):
         return None  
 
 def register(username, email, password, first_name, last_name):
-    url = f"{settings.BASE_URL}register/"
+    url = f"{BASE_URL}register/"
     data = {
         "username": username,
         "email": email,

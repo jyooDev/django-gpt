@@ -21,5 +21,8 @@ def register_ui():
         else:
             st.error("An error occurred. Please try again.")
 
-    if st.button("Login here"):
-        st.session_state.page = "login"
+def main():
+    register_ui()
+
+if __name__ == "__main__":
+    main()
